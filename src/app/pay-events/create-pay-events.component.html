@@ -1,0 +1,37 @@
+<h3>Add Payment</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Date</label>
+      <input type="date" class="form-control" id="eventDate" required [(ngModel)]="payments.eventDate" name="Date">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Expenses</label>
+      
+      <select name="payType" id="payType" class="form-control" required [(ngModel)]="payments.payType">
+        <option selected="selected" value="credit">Credit</option>
+        <option value="debit">Debit</option>
+        <option value="Card">Card</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="name">Details</label>
+      <input type="text" class="form-control" id="details" required [(ngModel)]="payments.details" name="Details">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Amount</label>
+      <input type="text" class="form-control" id="amount" required [(ngModel)]="payments.amount" name="Amount">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>

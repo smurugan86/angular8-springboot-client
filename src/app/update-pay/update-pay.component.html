@@ -1,0 +1,38 @@
+<h3>Update Pay</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Date</label>
+      {{payments.eventDate}}
+      <input type="date" class="form-control" datetime="yyyy-MM-dd" id="eventDateValue" required 
+          [(ngModel)]="payments.eventDate" 
+         name="eventDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Details</label>
+      <input type="text" class="form-control" id="details" required [(ngModel)]="payments.details" 
+          name="details">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Expense Type</label>
+      
+      <select name="payType" id="payType" class="form-control" required [(ngModel)]="payments.payType">
+        <option selected="payments.payType" value="credit">Credit</option>
+        <option value="debit">Debit</option>
+        <option value="Card">Card</option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="name">Amount</label>
+      <input type="text" class="form-control" id="amount" required [(ngModel)]="payments.amount" 
+      name="amount">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

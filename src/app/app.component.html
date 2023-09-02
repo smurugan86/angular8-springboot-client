@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="employees" class="nav-link" routerLinkActive="active">Employee List</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add" class="nav-link" routerLinkActive="active">Add Employee</a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="payments" class="nav-link" routerLinkActive="active">Add Pay</a>
+  </li>
+
+  <li class="nav-item">
+    <a routerLink="paylist" class="nav-link" routerLinkActive="active">PayEvents List</a>
+</li>
+
+<li class="nav-item">
+  <a routerLink="paylist2" class="nav-link" routerLinkActive="active">List2</a>
+</li>
+
+  </ul>
+</nav>
+
+
+<div class="container" style='overflow:scroll;'>
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>  
+  <div class="card">
+    <div class="card-body" style='overflow:scroll;'>
+       <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!--footer class="footer">
+  <div class="container">
+      <span>All Rights Reserved 2022 @SM Applications</span>
+  </div>
+</footer -->

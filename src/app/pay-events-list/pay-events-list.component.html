@@ -1,0 +1,66 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Payment List - AG grid</h2>
+  </div>
+
+  <ag-grid-angular style="width: 1000px; height: 500px;" 
+  class="ag-theme-alpine" 
+   [columnDefs]="columnDefs"
+   [rowData]="rowData$ | async"
+   [pagenation]="true"> </ag-grid-angular>
+
+  <br>
+
+  <div class="panel-heading">
+    <h2>Pay List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Types</th>
+          <th>Details</th>          
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let payment of payments | async">
+          <td>{{payment.eventDate | slice:0:10}}</td>
+          <td>{{payment.payType}}</td>
+          <td>{{payment.details | slice:0:21 }}</td>          
+          <td>{{payment.amount}}</td>
+          <td>
+              <button (click)="deletePay(payment.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updatePay(payment.id)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+              <button (click)="payDetails(payment.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total Income</td>
+          <td>{{dd.credit}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total Expenses</td>
+          <td>{{dd.debit}}</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Balance Amount</td>
+          <td>{{dd.balance}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
